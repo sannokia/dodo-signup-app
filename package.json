@@ -59,7 +59,6 @@
     "webpack-nodesecurity-plugin": "^0.1.1"
   },
   "dependencies": {
-    "@dodo/redux-store-setup": "^0.1.13",
     "babel-runtime": "^6.26.0",
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
@@ -75,6 +74,7 @@
     "fs-extra": "^5.0.0",
     "hbs": "^4.0.1",
     "helmet": "^3.10.0",
+    "history": "^4.7.2",
     "include-media": "^1.4.9",
     "jquery": "^3.3.1",
     "lodash": "^4.17.4",
@@ -87,8 +87,11 @@
     "react-dom": "^16.2.0",
     "react-hot-loader": "beta",
     "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0",
     "redux-thunk": "^2.2.0",
     "winston": "^2.4.0"
   },

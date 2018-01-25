@@ -97,10 +97,14 @@
   },
   "scripts": {
     "lint": "./node_modules/eslint/bin/eslint.js src/scripts lib --ext jsx,js --fix && ./node_modules/eslint/bin/eslint.js server --ext js --fix",
-    "prestart": "npm run lint",
+    "prestart": "npm run lint && npm run flow:status",
     "start": "NODE_ENV=development nodemon ./server/app.js --ext html,js,json --watch server",
-    "prebuild": "npm run lint",
+    "prebuild": "npm run lint && npm run flow:status",
     "build": "NODE_ENV=production webpack --config ./config/webpack.prod.config.js",
-    "bundle:analyzer": "NODE_ENV=production webpack --config ./config/webpack.prod.analyzer.config.js"
+    "postbuild": "npm run flow:stop",
+    "bundle:analyzer": "NODE_ENV=production webpack --config ./config/webpack.prod.analyzer.config.js",
+    "flow": "./node_modules/.bin/flow start",
+    "flow:stop": "./node_modules/.bin/flow stop",
+    "flow:status": "./node_modules/.bin/flow status"
   }
 }

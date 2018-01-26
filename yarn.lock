@@ -54,9 +54,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@dodo/babel-preset-react@^0.1.10":
-  version "0.1.10"
-  resolved "http://localhost:4873/@dodo%2fbabel-preset-react/-/babel-preset-react-0.1.10.tgz#bb9209ed56f21858d467a65eee90ae30ba144538"
+"@dodo/babel-preset-react@^0.1.11":
+  version "0.1.11"
+  resolved "http://localhost:4873/@dodo%2fbabel-preset-react/-/babel-preset-react-0.1.11.tgz#bee831a62cdf9c1acdb7e58d8da56765bacda332"
   dependencies:
     babel-plugin-dynamic-import-node "1.2.0"
     babel-plugin-syntax-dynamic-import "6.18.0"
@@ -73,40 +73,40 @@
     babel-preset-env "1.6.1"
     babel-preset-react "6.24.1"
 
-"@dodo/eslint-config-base@^0.1.2":
-  version "0.1.2"
-  resolved "http://localhost:4873/@dodo%2feslint-config-base/-/eslint-config-base-0.1.2.tgz#eecb36ab2c25a5e7bbc84d8063c00984179b0738"
+"@dodo/eslint-config-base@^0.1.3":
+  version "0.1.3"
+  resolved "http://localhost:4873/@dodo%2feslint-config-base/-/eslint-config-base-0.1.3.tgz#d505fabeb5dbc9c917ed7a289fcc7c901b809423"
   dependencies:
-    "@dodo/eslint-config-legacy" "^0.1.2"
+    "@dodo/eslint-config-legacy" "^0.1.3"
     babel-eslint "^8.2.1"
     eslint-plugin-babel "^4.1.2"
     eslint-plugin-import "^2.8.0"
 
-"@dodo/eslint-config-legacy@^0.1.2":
-  version "0.1.2"
-  resolved "http://localhost:4873/@dodo%2feslint-config-legacy/-/eslint-config-legacy-0.1.2.tgz#b6e4c463b8a30e31c2e8eaac3f70082815413369"
+"@dodo/eslint-config-legacy@^0.1.3":
+  version "0.1.3"
+  resolved "http://localhost:4873/@dodo%2feslint-config-legacy/-/eslint-config-legacy-0.1.3.tgz#5f362e7777a20fc33fb8acd2b5ab4c9540e99901"
 
-"@dodo/eslint-config-prettier@^0.1.6":
-  version "0.1.6"
-  resolved "http://localhost:4873/@dodo%2feslint-config-prettier/-/eslint-config-prettier-0.1.6.tgz#977e17ed9bf72b4ab6c6c03c0c88ca707f3b841b"
+"@dodo/eslint-config-prettier@^0.1.7":
+  version "0.1.7"
+  resolved "http://localhost:4873/@dodo%2feslint-config-prettier/-/eslint-config-prettier-0.1.7.tgz#a963d32e1e18980e06debdd4602d83829f11e3bf"
   dependencies:
     eslint-plugin-babel "^4.1.2"
     eslint-plugin-prettier "^2.5.0"
 
-"@dodo/eslint-config-react@^0.1.4":
-  version "0.1.4"
-  resolved "http://localhost:4873/@dodo%2feslint-config-react/-/eslint-config-react-0.1.4.tgz#9553ba33f54aa84a2a7f187751fabff613dbd036"
+"@dodo/eslint-config-react@^0.1.5":
+  version "0.1.5"
+  resolved "http://localhost:4873/@dodo%2feslint-config-react/-/eslint-config-react-0.1.5.tgz#f4830b90a58e0b448a9c2f0ca6c289efd7686d8b"
   dependencies:
-    "@dodo/eslint-config-base" "^0.1.2"
+    "@dodo/eslint-config-base" "^0.1.3"
     babel-eslint "^8.2.1"
     eslint-plugin-babel "^4.1.2"
     eslint-plugin-import "^2.8.0"
     eslint-plugin-jsx-a11y "^6.0.3"
     eslint-plugin-react "^7.5.1"
 
-"@dodo/logger@^0.1.7":
-  version "0.1.7"
-  resolved "http://localhost:4873/@dodo%2flogger/-/logger-0.1.7.tgz#597034fbefa875d4ba633b8b2a231092d881f9b6"
+"@dodo/logger@^0.1.8":
+  version "0.1.8"
+  resolved "http://localhost:4873/@dodo%2flogger/-/logger-0.1.8.tgz#fd0465cd315fc783ec8c629571a2043f165964d9"
   dependencies:
     colors "^1.1.2"
     fs "^0.0.1-security"

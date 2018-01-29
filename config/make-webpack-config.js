@@ -103,7 +103,7 @@ module.exports = (options) => {
           minChunks: 2
         }),
     new ExtractTextPlugin({
-      filename: '[name].css',
+      filename: 'main.css',
       allChunks: false
     }),
     new AssetsPlugin(),
@@ -220,7 +220,9 @@ module.exports = (options) => {
                 ? styleLoaders
                 : ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: 'css-loader?-url!postcss-loader!sass-loader'
+                    use: styleLoaders.filter(
+                      (val) => val.loader !== 'style-loader'
+                    )
                   })
         },
         {

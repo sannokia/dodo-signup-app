@@ -3173,7 +3173,7 @@ faye-websocket@~0.11.0:
   dependencies:
     websocket-driver ">=0.5.1"
 
-fbjs@^0.8.16:
+fbjs@^0.8.16, fbjs@^0.8.9:
   version "0.8.16"
   resolved "http://localhost:4873/fbjs/-/fbjs-0.8.16.tgz#5e67432f550dc41b572bf55847b8aca64e5337db"
   dependencies:
@@ -4967,10 +4967,6 @@ load-json-file@^2.0.0:
     pify "^2.0.0"
     strip-bom "^3.0.0"
 
-loadable-components@^0.4.0:
-  version "0.4.0"
-  resolved "http://localhost:4873/loadable-components/-/loadable-components-0.4.0.tgz#4470107bfaf02cc2278a3fc0d4040899f7afd10e"
-
 loader-runner@^2.3.0:
   version "2.3.0"
   resolved "http://localhost:4873/loader-runner/-/loader-runner-2.3.0.tgz#f482aea82d543e07921700d5a46ef26fdac6b8a2"
@@ -6663,6 +6659,13 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
+prop-types@15.5.10:
+  version "15.5.10"
+  resolved "http://localhost:4873/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.3.1"
+
 prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.0:
   version "15.6.0"
   resolved "http://localhost:4873/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
@@ -6851,6 +6854,13 @@ react-hot-loader@beta:
     global "^4.3.0"
     hoist-non-react-statics "^2.3.1"
     react-stand-in "^4.0.0-beta.17"
+
+react-imported-component@^1.0.4:
+  version "1.0.4"
+  resolved "http://localhost:4873/react-imported-component/-/react-imported-component-1.0.4.tgz#e86de36ad246a8342500e0afd96be3dd93884ff9"
+  dependencies:
+    detect-node "^2.0.3"
+    prop-types "15.5.10"
 
 react-proxy@^1.1.7:
   version "1.1.8"

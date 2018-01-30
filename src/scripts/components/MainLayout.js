@@ -1,4 +1,4 @@
-import Layout from 'components/Layout/Layout';
+import { Layout } from '@dodo/grid-components';
 
 class MainLayout extends Layout {}
 

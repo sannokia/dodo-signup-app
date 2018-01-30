@@ -54,9 +54,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@dodo/babel-preset-react@^0.1.11":
-  version "0.1.11"
-  resolved "http://localhost:4873/@dodo%2fbabel-preset-react/-/babel-preset-react-0.1.11.tgz#bee831a62cdf9c1acdb7e58d8da56765bacda332"
+"@dodo/babel-preset-react@^0.1.12":
+  version "0.1.25"
+  resolved "http://localhost:4873/@dodo%2fbabel-preset-react/-/babel-preset-react-0.1.25.tgz#c99ef382cf7a6c575d78ba0a913b2c7689d77dfa"
   dependencies:
     babel-plugin-dynamic-import-node "1.2.0"
     babel-plugin-syntax-dynamic-import "6.18.0"
@@ -73,40 +73,40 @@
     babel-preset-env "1.6.1"
     babel-preset-react "6.24.1"
 
-"@dodo/eslint-config-base@^0.1.3":
-  version "0.1.3"
-  resolved "http://localhost:4873/@dodo%2feslint-config-base/-/eslint-config-base-0.1.3.tgz#d505fabeb5dbc9c917ed7a289fcc7c901b809423"
+"@dodo/eslint-config-base@^0.1.10", "@dodo/eslint-config-base@^0.1.4":
+  version "0.1.10"
+  resolved "http://localhost:4873/@dodo%2feslint-config-base/-/eslint-config-base-0.1.10.tgz#1f4ba5cc9055e2ccc5a103dac13732e82caaf5ed"
   dependencies:
-    "@dodo/eslint-config-legacy" "^0.1.3"
+    "@dodo/eslint-config-legacy" "^0.1.9"
     babel-eslint "^8.2.1"
     eslint-plugin-babel "^4.1.2"
     eslint-plugin-import "^2.8.0"
 
-"@dodo/eslint-config-legacy@^0.1.3":
-  version "0.1.3"
-  resolved "http://localhost:4873/@dodo%2feslint-config-legacy/-/eslint-config-legacy-0.1.3.tgz#5f362e7777a20fc33fb8acd2b5ab4c9540e99901"
+"@dodo/eslint-config-legacy@^0.1.9":
+  version "0.1.12"
+  resolved "http://localhost:4873/@dodo%2feslint-config-legacy/-/eslint-config-legacy-0.1.12.tgz#21816166541607bfe4f4555b4a0daf55fa82ae2c"
 
-"@dodo/eslint-config-prettier@^0.1.7":
-  version "0.1.7"
-  resolved "http://localhost:4873/@dodo%2feslint-config-prettier/-/eslint-config-prettier-0.1.7.tgz#a963d32e1e18980e06debdd4602d83829f11e3bf"
+"@dodo/eslint-config-prettier@^0.1.8":
+  version "0.1.17"
+  resolved "http://localhost:4873/@dodo%2feslint-config-prettier/-/eslint-config-prettier-0.1.17.tgz#1851d43394b506e9e96d7261c242a34121edf39b"
   dependencies:
     eslint-plugin-babel "^4.1.2"
     eslint-plugin-prettier "^2.5.0"
 
-"@dodo/eslint-config-react@^0.1.5":
-  version "0.1.5"
-  resolved "http://localhost:4873/@dodo%2feslint-config-react/-/eslint-config-react-0.1.5.tgz#f4830b90a58e0b448a9c2f0ca6c289efd7686d8b"
+"@dodo/eslint-config-react@^0.1.6":
+  version "0.1.12"
+  resolved "http://localhost:4873/@dodo%2feslint-config-react/-/eslint-config-react-0.1.12.tgz#70e260370691c62f5a4c3d3305d7cd1d1b80f2d1"
   dependencies:
-    "@dodo/eslint-config-base" "^0.1.3"
+    "@dodo/eslint-config-base" "^0.1.10"
     babel-eslint "^8.2.1"
     eslint-plugin-babel "^4.1.2"
     eslint-plugin-import "^2.8.0"
     eslint-plugin-jsx-a11y "^6.0.3"
     eslint-plugin-react "^7.5.1"
 
-"@dodo/logger@^0.1.8":
-  version "0.1.8"
-  resolved "http://localhost:4873/@dodo%2flogger/-/logger-0.1.8.tgz#fd0465cd315fc783ec8c629571a2043f165964d9"
+"@dodo/logger@^0.1.9":
+  version "0.1.18"
+  resolved "http://localhost:4873/@dodo%2flogger/-/logger-0.1.18.tgz#6bda702f75ac5e44449957a19b9a23f69ac9d669"
   dependencies:
     colors "^1.1.2"
     fs "^0.0.1-security"
@@ -1647,9 +1647,9 @@ classnames@^2.2.5:
   version "2.2.5"
   resolved "http://localhost:4873/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
-clean-webpack-plugin@^0.1.17:
-  version "0.1.17"
-  resolved "http://localhost:4873/clean-webpack-plugin/-/clean-webpack-plugin-0.1.17.tgz#71c57242e6d47204d46f809413176e7bed28ec49"
+clean-webpack-plugin@^0.1.18:
+  version "0.1.18"
+  resolved "http://localhost:4873/clean-webpack-plugin/-/clean-webpack-plugin-0.1.18.tgz#2e2173897c76646031bff047c14b9c22c80d8c4a"
   dependencies:
     rimraf "^2.6.1"
 
@@ -4197,9 +4197,9 @@ imagemin-svgo@^6.0.0:
     is-svg "^2.0.0"
     svgo "^1.0.0"
 
-imagemin-webpack-plugin@^1.6.1:
-  version "1.6.1"
-  resolved "http://localhost:4873/imagemin-webpack-plugin/-/imagemin-webpack-plugin-1.6.1.tgz#1c4c54ba33023a2a9dd64f747d1aa25c0b6bea3e"
+imagemin-webpack-plugin@^2.0.0:
+  version "2.0.0"
+  resolved "http://localhost:4873/imagemin-webpack-plugin/-/imagemin-webpack-plugin-2.0.0.tgz#fbede21fca4a62aa2881b36de064a17f7dadc4ed"
   dependencies:
     async-throttle "^1.1.0"
     babel-runtime "^6.18.0"
@@ -5808,9 +5808,9 @@ normalize-range@^0.1.2:
   version "0.1.2"
   resolved "http://localhost:4873/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
 
-normalize-scss@^7.0.0:
-  version "7.0.0"
-  resolved "http://localhost:4873/normalize-scss/-/normalize-scss-7.0.0.tgz#92eaac6554cc376336c06682a0d6a2099bbb0889"
+normalize-scss@^7.0.1:
+  version "7.0.1"
+  resolved "http://localhost:4873/normalize-scss/-/normalize-scss-7.0.1.tgz#74485e82bb5d0526371136422a09fdb868ffc1a4"
 
 normalize-space-x@^3.0.0:
   version "3.0.0"
@@ -7378,6 +7378,13 @@ schema-utils@^0.3.0:
   dependencies:
     ajv "^5.0.0"
 
+schema-utils@^0.4.3:
+  version "0.4.3"
+  resolved "http://localhost:4873/schema-utils/-/schema-utils-0.4.3.tgz#e2a594d3395834d5e15da22b48be13517859458e"
+  dependencies:
+    ajv "^5.0.0"
+    ajv-keywords "^2.1.0"
+
 scss-tokenizer@^0.2.3:
   version "0.2.3"
   resolved "http://localhost:4873/scss-tokenizer/-/scss-tokenizer-0.2.3.tgz#8eb06db9a9723333824d3f5530641149847ce5d1"
@@ -7931,12 +7938,12 @@ strip-outer@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-style-loader@^0.19.1:
-  version "0.19.1"
-  resolved "http://localhost:4873/style-loader/-/style-loader-0.19.1.tgz#591ffc80bcefe268b77c5d9ebc0505d772619f85"
+style-loader@^0.20.1:
+  version "0.20.1"
+  resolved "http://localhost:4873/style-loader/-/style-loader-0.20.1.tgz#33ac2bf4d5c65a8906bc586ad253334c246998d0"
   dependencies:
-    loader-utils "^1.0.2"
-    schema-utils "^0.3.0"
+    loader-utils "^1.1.0"
+    schema-utils "^0.4.3"
 
 sum-up@^1.0.1:
   version "1.0.3"

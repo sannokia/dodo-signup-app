@@ -1,7 +1,16 @@
-@import '~normalize-scss/sass/_normalize.scss';
-@import '~include-media/dist/include-media';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
 
-@import 'variables';
-@import 'mixins';
-@import 'components/all';
-@import 'app';
+@import 'base/reset';
+@import 'base/typography';
+
+@import '@dodo/grid-components/scss/column';
+@import '@dodo/grid-components/scss/container';
+@import '@dodo/grid-components/scss/layout';
+@import '@dodo/grid-components/scss/row';
+
+@import 'layout/footer';
+@import 'layout/grid';
+@import 'layout/header';
+
+@import 'themes/default';

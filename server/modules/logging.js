@@ -14,6 +14,7 @@ module.exports = function(app) {
   });
 
   app.use(logger('dev'));
+
   app.use(
     expressWinston.logger({
       winstonInstance: accessLg

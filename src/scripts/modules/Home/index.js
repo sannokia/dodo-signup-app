@@ -1,7 +1,5 @@
 import React from 'react';
-import Container from '../../components/Layout/Container';
-import Row from '../../components/Layout/Row';
-import Column from '../../components/Layout/Column';
+import { Container, Column, Row } from '@dodo/grid-components';
 
 const Home = class extends React.Component {
   render() {

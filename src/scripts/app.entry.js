@@ -2,7 +2,7 @@
 import React from 'react';
 import { default as ReactDOM, unmountComponentAtNode } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Route } from 'react-router';
+import { Route, Switch, Redirect } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 
@@ -33,8 +33,11 @@ const render = () => {
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <MainLayout>
-          <Route exact path="/" component={Routes.HomePage} />
-          <Route exact path="/scratch" component={Routes.ScratchPage} />
+          <Switch>
+            <Route exact path="/" component={Routes.HomePage} />
+            <Route exact path="/scratch" component={Routes.ScratchPage} />
+            <Redirect to="/" />
+          </Switch>
         </MainLayout>
       </ConnectedRouter>
     </Provider>,

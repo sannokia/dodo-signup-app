@@ -64,22 +64,18 @@ module.exports = (options) => {
 
   var envMap = {
     dev: 'development',
-    prod: 'production',
-    test: 'test'
+    prod: 'production'
   };
 
   var plugins = [
     new DefinePlugin({
       __DEV__: JSON.stringify(options.env === 'dev'),
-      __TEST__: JSON.stringify(options.env === 'test'),
       __PROD__: JSON.stringify(options.env === 'prod'),
-      __NODE__: JSON.stringify(options.target === 'node'),
       'process.env': {
         NODE_ENV: JSON.stringify(
           options.env === 'prod' ? 'production' : 'development'
         ),
-        BABEL_ENV: JSON.stringify(envMap[options.env]),
-        TEST: JSON.stringify(options.env === 'test')
+        BABEL_ENV: JSON.stringify(envMap[options.env])
       }
     }),
     new LodashModuleReplacementPlugin({
@@ -96,12 +92,10 @@ module.exports = (options) => {
       /moment[/\\]locale$/,
       /en|fr|fi|es|nl|el/
     ),
-    options.target === 'node'
-      ? null
-      : new CommonsPlugin({
-          name: 'main',
-          minChunks: 2
-        }),
+    new CommonsPlugin({
+      name: 'main',
+      minChunks: 2
+    }),
     new ExtractTextPlugin({
       filename: 'main.css',
       allChunks: false
@@ -207,23 +201,14 @@ module.exports = (options) => {
         {
           test: /\.scss$/,
           use:
-            options.env === 'test'
-              ? [
-                  {
-                    loader: path.resolve(
-                      __dirname,
-                      'test/helpers/noop-loader.js'
-                    )
-                  }
-                ]
-              : options.env !== 'prod'
-                ? styleLoaders
-                : ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: styleLoaders.filter(
-                      (val) => val.loader !== 'style-loader'
-                    )
-                  })
+            options.env !== 'prod'
+              ? styleLoaders
+              : ExtractTextPlugin.extract({
+                  fallback: 'style-loader',
+                  use: styleLoaders.filter(
+                    (val) => val.loader !== 'style-loader'
+                  )
+                })
         },
         {
           test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.eot$|\.woff$|\.ttf$/,
@@ -242,28 +227,9 @@ module.exports = (options) => {
     }
   };
 
-  if (options.env === 'dev' || options.env === 'test') {
+  if (options.env === 'dev') {
     config.devtool = 'eval-source-map';
     config.output.pathinfo = true;
-  }
-
-  if (options.env === 'test') {
-    config.entry = {
-      main: 'main',
-      'index.test': 'test/index.test'
-    };
-
-    config.devtool = false;
-    config.output.filename = '[name].js';
-    config.output.chunkFilename = '[name].chunk.js';
-
-    config.resolve.modules = ['test'].concat(config.resolve.modules);
-
-    if (options.target === 'node') {
-      delete config.entry.main;
-      config.target = 'node';
-      config.output.path = __dirname + '/test/node';
-    }
   }
 
   if (options.env === 'prod') {

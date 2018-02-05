@@ -1,0 +1,13 @@
+{
+  "_prefix": "",
+
+  "gists": {
+    "_path": "",
+    "_noop": true,
+
+    "public": {
+      "_method": "get",
+      "_subpath": "gists/public"
+    }
+  }
+}

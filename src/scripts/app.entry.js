@@ -1,5 +1,9 @@
 /* eslint import/extensions: 0 */
+import bugsnag from 'bugsnag-js';
+const bugsnagClient = bugsnag('8e63074058ee908c6a1ab7e03d6a8e45');
+
 import React from 'react';
+import createPlugin from 'bugsnag-react';
 
 import { default as ReactDOM, unmountComponentAtNode } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -18,6 +22,7 @@ const history = createHistory();
 const reducerRegistry = new ReducerRegistry(coreReducers);
 const store = configureStore(reducerRegistry, history);
 const Routes = routes(store, reducerRegistry);
+const ErrorBoundary = bugsnagClient.use(createPlugin(React));
 
 if (process.env.NODE_ENV !== 'production') {
   if (module.hot) {
@@ -31,15 +36,17 @@ if (process.env.NODE_ENV !== 'production') {
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <MainLayout>
-          <Switch>
-            <Route exact path="/" component={Routes.HomePage} />
-            <Route exact path="/scratch" component={Routes.ScratchPage} />
-            <Redirect to="/" />
-          </Switch>
-        </MainLayout>
-      </ConnectedRouter>
+      <ErrorBoundary>
+        <ConnectedRouter history={history}>
+          <MainLayout>
+            <Switch>
+              <Route exact path="/" component={Routes.HomePage} />
+              <Route exact path="/scratch" component={Routes.ScratchPage} />
+              <Redirect to="/" />
+            </Switch>
+          </MainLayout>
+        </ConnectedRouter>
+      </ErrorBoundary>
     </Provider>,
     document.getElementById('app')
   );

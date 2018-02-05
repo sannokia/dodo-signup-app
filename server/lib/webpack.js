@@ -3,8 +3,10 @@ var _ = require('lodash');
 var chalk = require('chalk');
 var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 var Config = require('../../config/make-webpack-config');
+var pkg = require('../../package.json');
 
-var notifier = require('./notifier');
+var notifier = require('@dodo/notifier');
+var webpackNotifier = notifier(pkg.title);
 
 var config;
 
@@ -39,7 +41,7 @@ var cleanError = function(err) {
 };
 
 var onFail = function(errors) {
-  notifier.notify({
+  webpackNotifier.notify({
     message: '😭 Webpack compilation error 😭'
   });
   _.each(errors, (err) => {
@@ -49,7 +51,7 @@ var onFail = function(errors) {
 };
 compiler.plugin('done', function(data) {
   var time = data.endTime - data.startTime;
-  notifier.notify({
+  webpackNotifier.notify({
     message: '🎁 \u00A0Bundle is ready!\u00A0' + time + 'ms\u00A0 🎁'
   });
   if (data.compilation.errors && data.compilation.errors.length) {
@@ -60,13 +62,13 @@ compiler.plugin('failed', function(err) {
   onFail([err]);
 });
 compiler.plugin('invalid', function() {
-  notifier.notify({
+  webpackNotifier.notify({
     message: '😱 Bundle is invalid. Compiling...😈'
   });
 });
-app.use(webpackDevMiddleware);
+global.app.use(webpackDevMiddleware);
 if (!global.config.env.isTest) {
-  app.use(
+  global.app.use(
     require('webpack-hot-middleware')(compiler, {
       log: console.log,
       path: '/__webpack_hmr'

@@ -1,8 +1,10 @@
-var notifier = require('../lib/notifier');
+var notifier = require('@dodo/notifier');
+var pkg = require('../../package.json');
 
 module.exports = function() {
   if (global.config.env.isDevelopment) {
-    notifier.notify({
+    const appNotifier = notifier(pkg.title);
+    appNotifier.notify({
       message: '✅ Server has started successfully'
     });
   }

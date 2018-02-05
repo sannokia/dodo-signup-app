@@ -1,4 +1,10 @@
 {
+  "api": "https://api.github.com",
   "port": 9000,
-  "isSecure": false
+  "isSecure": false,
+  "loggly": {
+    "subdomain": "isobaraus",
+    "inputToken": "afc7c13b-c55d-4a62-af50-8570a4b44935",
+    "tags": ["dodo", "production"]
+  }
 }

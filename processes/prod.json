@@ -1,13 +1,15 @@
-[{
-	"name" : "dodo-signup-app",
-	"script" : "./server/app.js",
-	"env": {
-		"NODE_ENV": "production",
-		"APP_ENV": "production"
-	},
-	"error_file": "./logs/err.log",
-	"out_file": "./logs/out.log",
-	"instances": "1",
-	"exec_mode": "cluster_mode",
-	"merge_logs": true
-}]
+[
+  {
+    "name": "dodo-signup-app",
+    "script": "./server/app.js",
+    "env": {
+      "NODE_ENV": "production",
+      "APP_ENV": "production"
+    },
+    "error_file": "./logs/err.log",
+    "out_file": "./logs/out.log",
+    "instances": "4",
+    "exec_mode": "cluster_mode",
+    "merge_logs": true
+  }
+]

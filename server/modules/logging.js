@@ -1,19 +1,25 @@
 var Logger = require('@dodo/logger');
-var logger = require('morgan');
 var expressWinston = require('express-winston');
 
 module.exports = function(app) {
-  var lg = Logger.createLogger();
+  var logger = Logger.createLogger();
 
-  global.log = lg;
-  app.log = log;
+  global.log = app.log = logger;
 
   var accessLg = Logger.createLogger({
     name: 'access',
     console: false
   });
 
-  app.use(logger('dev'));
+  var zeusLg = Logger.createLogger({
+    name: 'zeus',
+    consoleJSON: true,
+    consoleJSONstringify: true
+  });
+
+  logger.zeus = zeusLg;
+
+  app.use(require('morgan')('dev'));
 
   app.use(
     expressWinston.logger({

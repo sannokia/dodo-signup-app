@@ -55,7 +55,7 @@ var Assets = {
         .groupBy('type')
         .value();
 
-      log.info('Page Assets for ' + req.url, pageAssets);
+      global.log.info('Page Assets for ' + req.url, pageAssets);
 
       res.locals.pageAssets = pageAssets;
 

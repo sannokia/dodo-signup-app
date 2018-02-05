@@ -17,6 +17,7 @@ var NodeSecurityPlugin = require('webpack-nodesecurity-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var ImageminPlugin = require('imagemin-webpack-plugin').default;
+var WriteFilePlugin = require('write-file-webpack-plugin');
 
 const q = (loader, query) => {
   return loader + '?' + JSON.stringify(query);
@@ -44,7 +45,8 @@ const styleLoaders = [
         path.resolve(__dirname, '../public'),
         path.resolve(__dirname, '../src'),
         path.resolve(__dirname, '../src/styles'),
-        path.resolve(__dirname, '../node_modules')
+        path.resolve(__dirname, '../node_modules'),
+        path.resolve(__dirname, '../node_modules/@dodo')
       ]
     }
   }
@@ -114,6 +116,7 @@ module.exports = (options) => {
       'windows.jQuery': 'jquery'
     }),
     new NodeSecurityPlugin(),
+    new WriteFilePlugin(),
     new CleanWebpackPlugin(
       ['dist/*.*', 'dist/**/*.*', 'public/*.*', 'public/**/*.*'],
       {
@@ -169,7 +172,19 @@ module.exports = (options) => {
       alias: {
         lodash: path.join(__dirname, '../node_modules/lodash'),
         jquery: path.join(__dirname, '../node_modules/jquery'),
-        $: path.join(__dirname, '../node_modules/jquery')
+        $: path.join(__dirname, '../node_modules/jquery'),
+        'redux-saga': path.join(__dirname, '../node_modules/redux-saga'),
+        'prop-types': path.join(__dirname, '../node_modules/prop-types'),
+        'component-emitter': path.join(
+          __dirname,
+          '../node_modules/component-emitter'
+        ),
+        ramda: path.join(__dirname, '../node_modules/ramda'),
+        stackframe: path.join(__dirname, '../node_modules/stackframe'),
+        debug: path.join(
+          __dirname,
+          '../node_modules/socket.io-client/node_modules/debug'
+        )
       }
     },
 

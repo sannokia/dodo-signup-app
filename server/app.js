@@ -3,11 +3,15 @@ var http = require('http');
 
 var app = express();
 var config = require('./config');
+var pkg = require('../package.json');
 
 global.app = app;
 global.config = config;
 
-require('./modules/greeting')();
+app.set('api', config.api);
+app.set('port', process.env.PORT || global.config.port || 5000);
+
+require('@dodo/greeting')(pkg.title);
 require('./modules/logging')(app);
 require('./modules/views')(app);
 require('./modules/middleware')(app);
@@ -16,8 +20,6 @@ require('./modules/env-specific')(app);
 require('./modules/security')(app);
 require('./routes')(app);
 require('./modules/notifier')();
-
-app.set('port', process.env.PORT || global.config.port || 5000);
 
 global.log.info('Starting App');
 global.log.info('Node Environment: ' + global.config.env.node);

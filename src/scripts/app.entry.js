@@ -1,5 +1,6 @@
 /* eslint import/extensions: 0 */
 import React from 'react';
+
 import { default as ReactDOM, unmountComponentAtNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router';
@@ -9,15 +10,14 @@ import createHistory from 'history/createBrowserHistory';
 import ReducerRegistry from 'lib/redux/ReducerRegistry';
 import configureStore from 'lib/redux/configureStore';
 import coreReducers from 'redux-ducks/core';
-import * as Routes from './routes';
+import routes from './routes';
 
 import MainLayout from './components/MainLayout';
-
-import 'main.scss';
 
 const history = createHistory();
 const reducerRegistry = new ReducerRegistry(coreReducers);
 const store = configureStore(reducerRegistry, history);
+const Routes = routes(store, reducerRegistry);
 
 if (process.env.NODE_ENV !== 'production') {
   if (module.hot) {

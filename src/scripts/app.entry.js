@@ -7,21 +7,17 @@ import createPlugin from 'bugsnag-react';
 
 import { default as ReactDOM, unmountComponentAtNode } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Route, Switch, Redirect } from 'react-router';
-import { ConnectedRouter } from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
+import { Router, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import ReducerRegistry from 'lib/redux/ReducerRegistry';
 import configureStore from 'lib/redux/configureStore';
 import coreReducers from 'redux-ducks/core';
-import routes from './routes';
+import { default as getRoutes } from './routes';
 
-import MainLayout from './components/MainLayout';
-
-const history = createHistory();
 const reducerRegistry = new ReducerRegistry(coreReducers);
-const store = configureStore(reducerRegistry, history);
-const Routes = routes(store, reducerRegistry);
+const store = configureStore(reducerRegistry);
+const history = syncHistoryWithStore(browserHistory, store);
 const ErrorBoundary = bugsnagClient.use(createPlugin(React));
 
 if (process.env.NODE_ENV !== 'production') {
@@ -34,18 +30,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const render = () => {
+  var appRoutes = getRoutes(store, reducerRegistry);
+
   ReactDOM.render(
     <Provider store={store}>
       <ErrorBoundary>
-        <ConnectedRouter history={history}>
-          <MainLayout>
-            <Switch>
-              <Route exact path="/" component={Routes.HomePage} />
-              <Route exact path="/scratch" component={Routes.ScratchPage} />
-              <Redirect to="/" />
-            </Switch>
-          </MainLayout>
-        </ConnectedRouter>
+        <Router history={history} routes={appRoutes} />
       </ErrorBoundary>
     </Provider>,
     document.getElementById('app')
@@ -55,7 +45,7 @@ const render = () => {
 render();
 
 if (module.hot) {
-  module.hot.accept('routes', () => {
+  module.hot.accept('./routes', () => {
     setImmediate(() => {
       unmountComponentAtNode(document.getElementById('app'));
       render();

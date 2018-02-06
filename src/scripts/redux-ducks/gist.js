@@ -1,4 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
+import { WAIT_FOR_ACTION, ERROR_ACTION } from 'redux-wait-for-action';
 import Zeus from 'lib/zeus-client';
 
 const FETCH_REQUESTED = 'gists/FETCH_REQUESTED';
@@ -12,7 +13,9 @@ const initialState = {
 
 function fetchGists() {
   return {
-    type: FETCH_REQUESTED
+    type: FETCH_REQUESTED,
+    [WAIT_FOR_ACTION]: FETCH_SUCCESS,
+    [ERROR_ACTION]: FETCH_FAILED
   };
 }
 

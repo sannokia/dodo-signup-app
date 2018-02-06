@@ -1,30 +1,44 @@
-import deferredComponent from 'react-imported-component';
 import { sagaMiddleware } from 'lib/redux/configureStore';
+import MainLayout from 'components/MainLayout';
 
 import { actionCreators as gistActionsCreators } from 'redux-ducks/gist';
 
 export default (store, reducerRegistry) => {
-  return {
-    HomePage: deferredComponent(() => {
-      var duck = require('redux-ducks/gist');
+  return [
+    {
+      component: MainLayout,
+      childRoutes: [
+        {
+          path: '/',
+          getComponent: (location, cb) => {
+            require.ensure(
+              [],
+              (require) => {
+                var duck = require('redux-ducks/gist');
+                var layout = require('modules/Home');
 
-      reducerRegistry.register({ gist: duck.default });
-      duck.runSaga(sagaMiddleware);
+                reducerRegistry.register({ gist: duck.default });
+                duck.runSaga(sagaMiddleware);
 
-      if (process.env.NODE_ENV !== 'production') {
-        if (module.hot) {
-          module.hot.accept('redux-ducks/gist', () => {
-            reducerRegistry.register({ gist: duck });
-          });
+                if (process.env.NODE_ENV !== 'production') {
+                  if (module.hot) {
+                    module.hot.accept('redux-ducks/gist', () => {
+                      reducerRegistry.register({ gist: duck });
+                    });
+                  }
+                }
+
+                Promise.all([
+                  store.dispatch(gistActionsCreators.fetchGists())
+                ]).then(() => {
+                  cb(null, layout.default);
+                });
+              },
+              'home'
+            );
+          }
         }
-      }
-
-      store.dispatch(gistActionsCreators.fetchGists());
-
-      return import(/* webpackChunkName:'home' */ '../modules/Home');
-    }),
-    ScratchPage: deferredComponent(() => {
-      return import(/* webpackChunkName:'scratch' */ '../modules/Scratch');
-    })
-  };
+      ]
+    }
+  ];
 };

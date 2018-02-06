@@ -142,11 +142,13 @@ export const variate = (variantToResultMap, variant) => {
   return result;
 };
 
-export default (experimentName) => (Component) => () => {
+export default (experimentName) => (Component) => (props) => {
   const isActive = activate(experimentName);
 
   const experiment = getExperimentByName(experimentName);
   const variant = getVariant(experimentName);
 
-  return <Component optimizely={{ experiment, variant, isActive }} />;
+  return (
+    <Component {...props} optimizely={{ experiment, variant, isActive }} />
+  );
 };

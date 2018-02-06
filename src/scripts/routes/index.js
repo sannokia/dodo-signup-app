@@ -1,6 +1,8 @@
 import deferredComponent from 'react-imported-component';
 import { sagaMiddleware } from 'lib/redux/configureStore';
 
+import { actionCreators as gistActionsCreators } from 'redux-ducks/gist';
+
 export default (store, reducerRegistry) => {
   return {
     HomePage: deferredComponent(() => {
@@ -16,6 +18,8 @@ export default (store, reducerRegistry) => {
           });
         }
       }
+
+      store.dispatch(gistActionsCreators.fetchGists());
 
       return import(/* webpackChunkName:'home' */ '../modules/Home');
     }),

@@ -47,7 +47,6 @@
     "prettier": "^1.10.2",
     "progress-bar-webpack-plugin": "^1.10.0",
     "react-bem-classes": "^1.1.0",
-    "react-optimizely": "^1.0.1",
     "react-transform-hmr": "^1.0.4",
     "reactotron-react-js": "^1.13.0",
     "reactotron-redux": "^1.13.0",
